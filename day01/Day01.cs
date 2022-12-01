@@ -3,18 +3,18 @@ using System.Linq;
 
 namespace day1
 {
-    class Program
+    class Day01
     {
         static void Main(string[] args)
         {
             var text = System.IO.File.ReadAllText(@"input.txt");
-            var elves = text.Split("\n\n");
+            var elves = text.Split(Environment.NewLine + Environment.NewLine);
             var calories = elves.Select(
-                    elf => elf.Split("\n")
-                                .Select(x => Int32.Parse(x))
+                    elf => elf.Split(Environment.NewLine)
+                                .Select(long.Parse)
                                 .Sum()
-                ).ToList();
-            calories.Sort((a, b) => b.CompareTo(a));
+                ).OrderByDescending(x => x)
+                .ToList();
             var part1 = calories[0];
             var part2 = calories.Take(3).Sum();
 

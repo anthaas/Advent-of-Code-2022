@@ -145,3 +145,7 @@ _NCrunch*
 # Built Visual Studio Code Extensions
 *.vsix
 .vscode/
+
+.idea/
+
+global.json

@@ -149,3 +149,5 @@ _NCrunch*
 .idea/
 
 global.json
+
+*.csproj

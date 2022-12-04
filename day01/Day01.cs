@@ -1,13 +1,14 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 
-namespace day1
+namespace day01
 {
     class Day01
     {
         static void Main(string[] args)
         {
-            var text = System.IO.File.ReadAllText(@"input.txt");
+            var text = File.ReadAllText(@"input.txt");
             var elves = text.Split(Environment.NewLine + Environment.NewLine);
             var calories = elves.Select(
                     elf => elf.Split(Environment.NewLine)

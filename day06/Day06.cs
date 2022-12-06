@@ -10,18 +10,18 @@ namespace day04
     {
         static int FindIndex(string input, int windowSize)
         {
-            for (int i = 0; i < input.Count() - windowSize; i++)
+
+            var i = 0;
+            while (i < input.Length - windowSize && input.Skip(i).Take(windowSize).ToHashSet().Count != windowSize)
             {
-                if (input.Skip(i).Take(windowSize).ToHashSet().Count == windowSize)
-                {
-                    return i + windowSize;
-                }
+                i++;
             }
-            return -1;
+            return i + windowSize;
         }
+
         static void Main(string[] args)
         {
-            var input = File.ReadLines(@"input.txt").ElementAt(0);
+            var input = File.ReadAllText(@"input.txt");
             Console.WriteLine(FindIndex(input, 4));
             Console.WriteLine(FindIndex(input, 14));
         }
